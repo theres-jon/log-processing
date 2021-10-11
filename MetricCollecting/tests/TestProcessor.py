@@ -28,9 +28,9 @@ class TestProcessor(unittest.TestCase):
         interval = random.randrange(0, 100)
 
         # This could be improved
-        metric_list = [random.uniform(0, 100.0) for i in range(100)]
+        metric_list = [round(random.uniform(0.1, 100.0), 2) for i in range(100)]
         metric_list = [str(x) for x in metric_list]
-        metric_formatted_list = str(metric_list).replace('[', '').replace(']', '').strip()
+        metric_formatted_list = str(metric_list).replace('[', '').replace(']', '').replace("'", "").strip()
         return f"n{host},{time_stamp},{time_stamp},{interval}|{metric_formatted_list}"
 
     def test_list_size(self):
@@ -63,4 +63,4 @@ class TestProcessor(unittest.TestCase):
     def test_generate_mock_data(self):
         mock = self.create_mock_data()
         log_entry = processor.process_log_entry(mock)
-        self.assertTrue(log_entry.min_sample > 0)
+        self.assertTrue(log_entry.max_sample > 0)

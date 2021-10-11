@@ -2,16 +2,15 @@
 ### Name: Jonathan Hickman
 ### Date: 2021-10-10
 
-Simple python application that takes a file path and parses it with a known comma delineated schema. 
+Simple python application that takes a file path and parses it with a known comma delineated schema. Once it's parsed we take a look at the data in aggregate and format it accordingly.
 
-Only requirement is a module called [attrs](https://www.attrs.org/en/stable/) which reduces boiler plate code without sacrificing performance.
-
+Only Python requirement is a module called [attrs](https://www.attrs.org/en/stable/) which reduces boiler plate code without sacrificing performance.
 
 <hr>
 
 ## Setup
 
-Code is written to target `>3.8.9`
+Code is written to target python `>3.8.9`
 
 ### Virtual Environment
 
