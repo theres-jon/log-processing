@@ -7,9 +7,8 @@ class MetricProcessor():
 
     @staticmethod
     def process_log_entry(data: str) -> MetricSampling:
-        # Future enhancement: Allow for regex pattern at class level
-        # for matching rather than splitting. Would be nice to keep
-        # this as flexible as possible.
+        # Future enhancement: Allow for regex pattern matching
+        # rather than splitting.
         entry: List[str] = data.split('|')
 
         if len(entry) == 2:
@@ -17,12 +16,12 @@ class MetricProcessor():
             readings: List[float] = entry[1].split(',')
 
             # Edge case that came out of testing where
-            # we have to handle spaces between metric readings
+            # we have to handle spaces between metric readings.
             readings = [x.strip() for x in readings]
 
             # Sometimes the type hints are useless and we need to
-            # hit Python with a hammer. We need the readings as floats
-            # so we can run calculations on them.
+            # hit Python with a hammer. The readings absolutely
+            # need to be of type float.
             #
             # Additionally we're dropping None values here
             # as to not dilute the averave aggregation.
