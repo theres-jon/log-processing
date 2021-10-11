@@ -1,9 +1,9 @@
 import os
 import sys
-from typing import Generator 
+
 
 class FileStream():
-    
+
     @staticmethod
     def read_file(file_path: str):
         # Simple validation.

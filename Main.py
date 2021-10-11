@@ -7,7 +7,7 @@ def main(args):
     metric_reader = FileStream.read_file(args)
 
     # No point in our processor being a generator also
-    # as we need to store all the values in memory so 
+    # as we need to store all the values in memory so
     # we can print a sorted list
     metric_collection = [MetricProcessor.process_log_entry(line) for line in metric_reader]
 

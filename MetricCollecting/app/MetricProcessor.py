@@ -1,6 +1,5 @@
 import logging
-import os
-from typing import Generator, List
+from typing import List
 from MetricCollecting.app.MetricSample import MetricSampling
 
 
@@ -16,11 +15,11 @@ class MetricProcessor():
         if len(entry) == 2:
             metadata: List[str] = entry[0].split(',')
             readings: List[float] = entry[1].split(',')
-            
-            # Edge case that came out of testing where 
+
+            # Edge case that came out of testing where
             # we have to handle spaces between metric readings
             readings = [x.strip() for x in readings]
-            
+
             # Sometimes the type hints are useless and we need to
             # hit Python with a hammer. We need the readings as floats
             # so we can run calculations on them.
@@ -39,6 +38,3 @@ class MetricProcessor():
             except Exception as ex:
                 logging.error(ex)
                 return
-
-
-        
